@@ -18,8 +18,6 @@
  */
 package com.comphenix.packetwrapper;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.bukkit.entity.Player;
 
 import com.comphenix.protocol.PacketType;
@@ -33,7 +31,7 @@ public abstract class AbstractPacket {
 
 	/**
 	 * Constructs a new strongly typed wrapper for the given packet.
-	 * 
+	 *
 	 * @param handle - handle to the raw packet data.
 	 * @param type - the packet type.
 	 */
@@ -50,7 +48,7 @@ public abstract class AbstractPacket {
 
 	/**
 	 * Retrieve a handle to the raw packet data.
-	 * 
+	 *
 	 * @return Raw packet data.
 	 */
 	public PacketContainer getHandle() {
@@ -59,17 +57,13 @@ public abstract class AbstractPacket {
 
 	/**
 	 * Send the current packet to the given receiver.
-	 * 
+	 *
 	 * @param receiver - the receiver.
 	 * @throws RuntimeException If the packet cannot be sent.
 	 */
 	public void sendPacket(Player receiver) {
-		try {
-			ProtocolLibrary.getProtocolManager().sendServerPacket(receiver,
-					getHandle());
-		} catch (InvocationTargetException e) {
-			throw new RuntimeException("Cannot send packet.", e);
-		}
+		ProtocolLibrary.getProtocolManager().sendServerPacket(receiver,
+				getHandle());
 	}
 
 	/**
@@ -81,31 +75,13 @@ public abstract class AbstractPacket {
 
 	/**
 	 * Simulate receiving the current packet from the given sender.
-	 * 
-	 * @param sender - the sender.
-	 * @throws RuntimeException If the packet cannot be received.
-	 * @deprecated Misspelled. recieve to receive
-	 * @see #receivePacket(Player)
-	 */
-	@Deprecated
-	public void recievePacket(Player sender) {
-		try {
-			ProtocolLibrary.getProtocolManager().recieveClientPacket(sender,
-					getHandle());
-		} catch (Exception e) {
-			throw new RuntimeException("Cannot recieve packet.", e);
-		}
-	}
-
-	/**
-	 * Simulate receiving the current packet from the given sender.
-	 * 
+	 *
 	 * @param sender - the sender.
 	 * @throws RuntimeException if the packet cannot be received.
 	 */
 	public void receivePacket(Player sender) {
 		try {
-			ProtocolLibrary.getProtocolManager().recieveClientPacket(sender,
+			ProtocolLibrary.getProtocolManager().receiveClientPacket(sender,
 					getHandle());
 		} catch (Exception e) {
 			throw new RuntimeException("Cannot receive packet.", e);
