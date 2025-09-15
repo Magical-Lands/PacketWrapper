@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'dev.magicallands'
-version = '1.0.0'
+version = '0.0.6'
 
 repositories {
     mavenCentral()
@@ -38,7 +38,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'dev.magicallands'
             artifactId = 'packetwrapper'
-            version = '0.0.5'
+            version = '0.0.6'
             from components.java
         }
     }
