@@ -1,0 +1,1 @@
+This is an unofficial version of PacketWrapper for ProtocolLib. Unfortunately, support for this has long since been discontinued. However, since I use ProtocolLib for my network, I need an up-to-date PacketWrapper. I will update the packets to version 1.21.4 bit by bit, as needed. Feel free to make changes here as well.
