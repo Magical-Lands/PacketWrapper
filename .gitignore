@@ -1,42 +1,53 @@
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+.gradle/
+/*/**/modules/*.jar
+/*/**/plugins/*.jar
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# Only for this Project
+${project.parent.basedir}
+output/
+
+# eclipse
+.classpath
+.project
+.settings/
+
+# netbeans
+nbproject/
+nbactions.xml
+
+# maven
+target/
+javadoc/
+dependency-reduced-pom.xml
+build.xml
+
+# vim
+.*.sw[a-p]
+
+# various other potential build files
+build/
+bin/
+dist/
+manifest.mf
+
+# mac filesystem dust
+.DS_Store/
+
+# intellij
 *.iml
 *.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+*.iws
+.idea/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# other files
+*.log*
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# package files
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
 
-### VS Code ###
-.vscode/
-
-### Mac OS ###
-.DS_Store
+# others
+output/

@@ -1,10 +1,10 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id 'io.papermc.paperweight.userdev' version '1.7.1'
+    id 'io.papermc.paperweight.userdev' version '+'
 }
 
-group = 'com.comphenix'
+group = 'dev.magicallands'
 version = '1.0.0'
 
 repositories {
@@ -13,29 +13,14 @@ repositories {
     maven {
         url 'https://hub.spigotmc.org/nexus/content/groups/public/'
     }
-
-    maven {
-        url 'https://repo.dmulloy2.net/content/groups/public/'
-    }
-
-    // Private Repository
-    repositories {
-        maven {
-            credentials {
-                username "${github_username}"
-                password "${github_auth_token}"
-            }
-            url "${github_repository}"
-        }
-    }
 }
 
 dependencies {
-    compileOnly "com.comphenix.protocol:ProtocolLib:${magical_lands_protocollib_version}"
+    compileOnly 'net.dmulloy2:ProtocolLib:5.4.0'
 
     compileOnly 'io.netty:netty-all:+'
 
-    paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:${magical_lands_spigot_version}")
+    paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.21.4-R0.1-SNAPSHOT")
 }
 
 publishing {
@@ -51,9 +36,9 @@ publishing {
 
     publications {
         maven(MavenPublication) {
-            groupId = 'com.comphenix'
+            groupId = 'dev.magicallands'
             artifactId = 'packetwrapper'
-            version = '1.0.0'
+            version = '0.0.5'
             from components.java
         }
     }
